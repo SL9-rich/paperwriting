@@ -1,0 +1,16 @@
+httpx>=0.28,<1
+pypdf>=5,<7
+python-docx>=1.1,<2
+pandas>=2.2,<3
+matplotlib>=3.9,<4
+openpyxl>=3.1,<4
+Pillow>=10,<13
+python-dotenv>=1,<2
+starlette>=1.0,<2
+uvicorn>=0.40,<1
+python-multipart>=0.0.22,<1
+numpy>=1.26,<3
+langgraph>=1.2,<2
+langgraph-checkpoint-sqlite>=3.1,<4
+langsmith>=0.12,<1
+filelock>=3.10,<4

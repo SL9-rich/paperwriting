@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="PaperCoding 学术写作工作台：研究材料、论文编辑与可审阅的写作助手。">
+<title>PaperCoding · 学术写作工作台</title>
+<link rel="stylesheet" href="/static/base.css"><link rel="stylesheet" href="/static/workspace.css">
+<script defer src="/static/workspace.js"></script>
+</head>
+<body class="pc">
+<div class="workspace-shell">
+<header class="topbar">
+  <a href="/" class="brand-block"><div class="brand-mark">P</div><div><h1>PaperCoding</h1><p>研究者的学术写作工作台</p></div></a>
+  <div class="project-title"><span class="eyebrow">当前项目</span><button id="projectTitle" class="project-title-button" title="修改项目标题">正在读取论文…</button></div>
+  <div class="header-actions"><span id="saveState" class="save-state"><i></i>已保存</span><button data-view="translate" class="ghost-button">中英转换</button><button id="versionsButton" class="ghost-button">版本历史</button><button id="saveVersion" class="ghost-button">保存版本</button><button id="exportButton" class="primary-button">导出 Word <span>↗</span></button></div>
+</header>
+<main id="workspace" class="three-column-layout">
+<aside class="materials-panel">
+  <div class="panel-heading"><div><span class="eyebrow">RESEARCH CONTEXT</span><h2>研究材料</h2></div><button class="icon-button" data-view="materials" data-type="thesis" aria-label="编辑研究材料">＋</button></div>
+  <div id="materialList" class="material-list"></div>
+  <section class="source-note"><span>材料准备度</span><strong id="readiness">—</strong><div><i id="readinessBar"></i></div><p>明确主线与证据，让每一次写作都有据可依。</p></section>
+  <div class="left-bottom"><button data-view="rag">⌕ <span>文献证据检索</span><b>↗</b></button><button data-view="trace">◷ <span>运行记录</span><b>↗</b></button><button data-view="settings">⚙ <span>数据与设置</span><b>↗</b></button><p>作者掌握主线<br>Agent 协助表达</p></div>
+</aside>
+<div class="panel-resizer panel-resizer-left" data-side="left" role="separator" aria-label="调整材料栏宽度" tabindex="0"><i></i></div>
+<section class="paper-panel" id="paperPanel">
+ <nav id="chapterTabs" class="chapter-tabs" aria-label="论文章节"></nav>
+ <div class="paper-toolbar"><div class="view-switch"><button class="active" id="chapterView">章节写作</button><button id="integratedView">整合排版预览</button></div><span id="paperTemplate">研究论文</span></div>
+ <article class="paper-canvas" id="paperCanvas">
+  <div class="paper-meta"><span id="chapterNumber"></span><span id="wordCount" class="author-edit-badge"></span><span class="draft-status">作者草稿</span></div>
+  <h2 id="chapterTitle"></h2><div class="paper-divider"></div>
+  <textarea id="editor" class="chapter-editor" aria-label="章节正文" spellcheck="false" placeholder="在这里开始写作，也可以请右侧 Agent 根据研究材料生成候选稿。"></textarea>
+  <div id="integratedText" hidden></div>
+  <div id="figureArea"></div>
+  <div id="handoff" class="chapter-handoff"></div>
+  <footer class="manuscript-footer"><span>PaperCoding · Working manuscript</span><span id="pageCount"></span></footer>
+ </article>
+ <div class="paper-zoom-controls" id="zoom"><span class="zoom-grip" title="拖动缩放控件">⠿</span><button id="zoomOut" aria-label="缩小">−</button><button id="zoomReset">100%</button><button id="zoomIn" aria-label="放大">＋</button></div>
+</section>
+<div class="panel-resizer panel-resizer-right" data-side="right" role="separator" aria-label="调整助手栏宽度" tabindex="0"><i></i></div>
+<aside class="agent-panel">
+ <div class="agent-heading"><div class="agent-avatar">✦</div><div><h2>写作 Agent</h2><p><i></i>围绕你的研究主线</p></div><button class="icon-button" data-view="trace" aria-label="查看运行历史">•••</button></div>
+ <div id="jobStatus"></div>
+ <div class="conversation" id="conversation"><div id="chatContent"></div><div id="candidateCards"></div></div>
+ <div class="pc-composer">
+  <div class="pc-quick-actions"><button data-prompt="总结当前章节的主要问题和待补证据">总结本章</button><button data-prompt="检查当前章节的论证与证据是否匹配">检查论证</button><button data-prompt="在不扩大结论的前提下优化当前章节的表达" data-mode="revise">优化表达</button></div>
+  <label class="sr-only" for="instruction">发送给写作助手</label><textarea id="instruction" placeholder="讨论、提问，或描述你希望修改的内容…"></textarea>
+  <div class="pc-composer-toolbar"><select id="agentMode" aria-label="操作类型"><option value="discuss">讨论 / 总结</option><option value="revise">修改正文</option></select><button id="send" class="primary-button" aria-label="发送消息">发送 ↑</button></div>
+  <p class="composer-note">修改须经确认后应用，正文始终由你掌握。</p>
+ </div>
+</aside>
+</main>
+<main id="secondary" hidden><div class="secondary-heading"><button id="backHome" class="ghost-button">← 返回工作台</button><div><span class="eyebrow" id="secondaryEyebrow">RESEARCH MATERIALS</span><h2 id="secondaryTitle"></h2></div><span class="secondary-note">与当前论文同步保存</span></div><div id="secondaryContent"></div></main>
+</div>
+<dialog id="dialog"><div class="dialog-header"><h2 id="dialogTitle"></h2><button id="closeDialog" aria-label="关闭">×</button></div><div id="dialogBody"></div></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+</body></html>
