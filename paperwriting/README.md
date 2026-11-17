@@ -1,6 +1,4 @@
-# PaperCoding · 完整使用指南
-
-[← 返回项目首页](../README.md)
+# PaperCoding
 
 **一个本地运行、由研究者掌握最终修改权的 AI 学术写作工作台。**
 
@@ -18,11 +16,11 @@ PaperCoding 将论文编辑、研究材料管理、文献检索和多 Agent 审�
 - **人工审批**：章节修改和全文生成均先生成候选，不直接覆盖正文。
 - **可恢复执行**：章节修改保存 LangGraph 检查点和模型调用回执。
 - **证据检索**：关键词检索；可选本地向量、RRF 混合召回及失败降级。
-- **翻译与导出**：逐段中译英、确认、润色，以及 Markdown / DOCX 导出。
+- **翻译与导出**：逐段中英翻译、确认、润色，以及 Markdown / DOCX 导出。
 
 ## 快速开始
 
-需要 **Python 3.11+**。无需 Node.js 或前端构建。以下命令在应用目录 `paperwriting/` 中执行。若当前位于仓库根目录，请先执行 `cd paperwriting`。
+需要 **Python 3.11+**。无需 Node.js 或前端构建。以下命令在仓库根目录执行。
 
 ```bash
 python3 -m venv .venv
@@ -34,12 +32,12 @@ python run.py
 Windows PowerShell：
 
 ```powershell
-py -3.11 -m venv .venv
+py -3 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe run.py
 ```
 
-打开 **http://127.0.0.1:8501**。端口被占用时，macOS / Linux 在已激活的环境中运行 `python run.py --port 8502`；Windows 运行 `.\.venv\Scripts\python.exe run.py --port 8502`。
+打开 **http://127.0.0.1:8501**。端口被占用时：`python run.py --port 8502`。
 
 首次运行自动创建本项目的 `data/`，不读取其他项目的数据。未配置模型时仍可编辑、保存、管理材料和导出 Markdown；DOCX 导出需要先上传自己的 DOCX 模板。
 
@@ -108,8 +106,6 @@ Writer、Reviewer、Coordinator 默认使用同一个已配置模型，通过独
 
 ## 代码结构
 
-以下为应用目录 `paperwriting/` 内部结构：
-
 ```text
 .
 ├── run.py                     # 唯一启动入口
@@ -122,6 +118,7 @@ Writer、Reviewer、Coordinator 默认使用同一个已配置模型，通过独
 │   └── presentation/          # HTTP 路由与应用组装
 ├── tests/                     # 合成数据 / mock 测试，不附真实文献
 ├── docs/                      # 架构、配置、安全和发布说明
+├── .github/workflows/         # 自动测试
 ├── .env.example               # 空白配置模板
 └── requirements*.txt           # 核心 / 可选向量 / 开发依赖
 ```
@@ -138,13 +135,12 @@ python -m ruff check .
 
 覆盖空白启动、模型配置、检索降级、版本冲突、人工审批、非法章节和无效引用、进程中断恢复、调用回执、Token 预算、并发锁、上传与导出等行为。测试使用临时目录、合成材料与 mock 响应，不请求真实模型，也不下载向量权重。
 
-`constraints-py312.txt` 记录了整理时的 Python 3.12 依赖版本，可用 `pip install -r requirements-dev.txt -c constraints-py312.txt` 复用；它不是所有平台通用的锁文件。当前仓库未提交 GitHub Actions 配置，测试结果以实际运行输出为准。
+整理时在全新的 Python 3.12 环境中完成了 54 项测试。`constraints-py312.txt` 记录该环境的版本，可用 `pip install -r requirements-dev.txt -c constraints-py312.txt` 复用；它不是所有平台通用的锁文件。CI 配置覆盖 Python 3.11 / 3.12，远程运行结果以上传后的 Actions 为准。
 
 当前公开版**不附带私人语料上的评测结论**，自动化测试不等同于真实模型质量或完整安全性证明。仓库没有预装演示论文；测试中的短文本仅是程序测试夹具。
 
 ## 当前边界
 
-- 中英转换页的段落模板存在渲染问题，相关界面仍待修复。
 - 面向单人本机使用，没有登录和多用户数据隔离。**不要直接暴露到公网。**
 - 仅章节修改支持检查点恢复；翻译等普通后台任务中断后需要重试。
 - 每次章节修改最多 24 次逻辑模型调用，Token 预算为 80,000；网络重试和服务计费使它不等同于精确费用上限。
