@@ -2,7 +2,7 @@
 
 ## 配置来源
 
-仅加载仓库根目录 `.env`，不搜索父目录。已存在的进程环境变量优先于 `.env`。不要复制作者原项目的配置；使用空白 `.env.example`。
+仅加载应用目录 `paperwriting/.env`（相对于仓库根目录），不搜索父目录。已存在的进程环境变量优先于 `.env`。不要复制作者原项目的配置；使用空白 `.env.example`。
 
 首次安装后，应用默认不具备可用的生成模型，也不下载向量模型。可先打开网页确认空白编辑器，再配置模型。
 
@@ -37,7 +37,7 @@ LLM_API_KEY=
 
 ## 数据路径
 
-默认数据位于本仓库 `data/`，模型缓存位于 `.cache/embeddings/`。可以配置 `PAPERCODING_DATA_DIR` 和 `PAPERCODING_EMBEDDING_CACHE`，建议使用绝对路径。
+默认数据位于应用目录下的 `data/`，模型缓存位于同一目录下的 `.cache/embeddings/`；从仓库根目录看，分别为 `paperwriting/data/` 与 `paperwriting/.cache/embeddings/`。可以配置 `PAPERCODING_DATA_DIR` 和 `PAPERCODING_EMBEDDING_CACHE`，建议使用绝对路径。
 
 每个数据目录仅启动一个服务。初始标题为“未命名论文”，章节标题是通用空目录，正文、研究方法、作者信息、文献、模板、图片、运行历史均为空。
 
@@ -46,7 +46,7 @@ LLM_API_KEY=
 - **没有配置 API**：编辑和保存可用，生成/翻译任务会提示配置缺失。
 - **DOCX 导出失败**：先上传自己的合法 DOCX 模板；空壳版不附带期刊文件。
 - **扫描 PDF 无文字**：先自行 OCR，本项目不做 OCR。
-- **端口占用**：使用 `python run.py --port 8502`。
+- **端口占用**：macOS / Linux 在已激活的环境中使用 `python run.py --port 8502`；Windows 使用 `.\.venv\Scripts\python.exe run.py --port 8502`。
 - **macOS 安装依赖提示证书错误**：可尝试 `python -m pip install --cert /etc/ssl/cert.pem -r requirements.txt`，使用系统证书验证，不要关闭 TLS 校验。
 - **返回非 JSON**：检查模型及服务是否支持约定的 JSON 输出；必要时改造适配器。
 - **未启用语义检索**：选择关键词模式，或按上述步骤安装并启用向量模型。

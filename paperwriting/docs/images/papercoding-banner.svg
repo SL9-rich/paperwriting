@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="360" viewBox="0 0 1600 360" role="img" aria-labelledby="title desc">
+  <title id="title">PaperCoding — AI Academic Writing Workspace</title>
+  <desc id="desc">A pale lavender and blush banner with the PaperCoding wordmark and a manuscript review illustration.</desc>
+  <defs>
+    <linearGradient id="backdrop" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#F7F5FF"/>
+      <stop offset="0.56" stop-color="#FFFAFD"/>
+      <stop offset="1" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#6C60D9"/>
+      <stop offset="1" stop-color="#8C78DD"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="360" rx="24" fill="url(#backdrop)"/>
+  <path d="M 0 313 C 360 268 530 353 870 320 S 1320 288 1600 321 V 360 H 0 Z" fill="#EDE8FA" opacity="0.27"/>
+  <circle cx="1320" cy="148" r="139" fill="#F0ECFC" opacity="0.7"/>
+  <circle cx="1433" cy="231" r="66" fill="#FBE8F0" opacity="0.7"/>
+
+  <rect x="76" y="64" width="59" height="59" rx="16" fill="url(#mark)"/>
+  <text x="105.5" y="105" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="41" font-weight="700" fill="#FFFFFF">P</text>
+  <text x="76" y="204" font-family="Arial, Helvetica, sans-serif" font-size="77" font-weight="700" letter-spacing="-2" fill="#29243C">PaperCoding</text>
+  <text x="80" y="250" font-family="'Times New Roman', Georgia, serif" font-size="31" fill="#625973">AI Academic Writing Workspace</text>
+  <path d="M 80 285 H 120" fill="none" stroke="#B3A7E3" stroke-width="2"/>
+  <text x="136" y="292" font-family="Arial, Helvetica, sans-serif" font-size="18" letter-spacing="0.5" fill="#6C627D">Research materials</text>
+  <circle cx="317" cy="285" r="2.5" fill="#B0A4C5"/>
+  <text x="337" y="292" font-family="Arial, Helvetica, sans-serif" font-size="18" letter-spacing="0.5" fill="#6C627D">Evidence retrieval</text>
+  <circle cx="507" cy="285" r="2.5" fill="#B0A4C5"/>
+  <text x="527" y="292" font-family="Arial, Helvetica, sans-serif" font-size="18" letter-spacing="0.5" fill="#6C627D">Human approval</text>
+
+  <g transform="translate(1088 56)">
+    <rect x="21" y="10" width="302" height="241" rx="16" fill="#EAE4F8" transform="rotate(5 172 130)"/>
+    <rect x="0" y="0" width="302" height="241" rx="16" fill="#FFFFFF" stroke="#DDD5EE" stroke-width="1.5"/>
+    <rect x="26" y="27" width="32" height="32" rx="9" fill="#F0ECFA"/>
+    <path d="M 36 43 L 41 48 L 49 38" fill="none" stroke="#8372C8" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="72" y="48" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" letter-spacing="1.2" fill="#62547E">AUTHOR REVIEW</text>
+    <path d="M 27 85 H 211" stroke="#B7ABCE" stroke-width="8" stroke-linecap="round"/>
+    <path d="M 27 112 H 269 M 27 134 H 238 M 27 156 H 255" stroke="#E4DFEE" stroke-width="6" stroke-linecap="round"/>
+    <rect x="23" y="180" width="256" height="38" rx="9" fill="#F6F2FD"/>
+    <circle cx="43" cy="199" r="5" fill="#BBA7E4"/>
+    <text x="58" y="205" font-family="'Times New Roman', Georgia, serif" font-size="19" fill="#74618D">Review before applying</text>
+  </g>
+  <path d="M 1031 125 H 1054 M 1042.5 113.5 V 136.5" stroke="#CCBADD" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="1455" cy="94" r="5" fill="#D9C3E7"/>
+  <circle cx="1046" cy="266" r="4" fill="#EBC9D9"/>
+</svg>
